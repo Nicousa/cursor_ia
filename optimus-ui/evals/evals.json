@@ -1,0 +1,41 @@
+{
+  "skill_name": "optimus-ui (suite: optimus-ui, optimus-ui-theming, optimus-ui-migration)",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Dans mon app Angular 21, crée un formulaire de contact avec un champ email, une liste déroulante de pays filtrable, un sélecteur de date au format jj/mm/aaaa et un bouton Envoyer qui affiche une notification de succès.",
+      "expected_output": "Imports en sous-chemins @openng/optimus-ui/*, p-select (pas p-dropdown), p-datepicker avec dateFormat dd/mm/yy, MessageService + <p-toast /> (importés depuis @openng/optimus-ui/api), (onClick) sur p-button, ReactiveFormsModule ou FormsModule importé, aucune référence à primeng.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "J'ai un projet Angular 21 avec primeng 21 et primeicons. Comment passer à Optimus UI sans casser mon app ?",
+      "expected_output": "Épingle @openng/optimus-ui@1, utilise ng generate @openng/optimus-ui@1:migrate-from-primeng (pas ng add), explique le rapport de résidus, la vérification par grep/ng build, le mapping providePrimeNG→provideOptimus et primeicons→@openng/icons.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Je veux que toute l'app soit en indigo avec un mode sombre activable par un bouton, et que mes classes Tailwind v4 puissent surcharger le padding des composants.",
+      "expected_output": "definePreset(Aura, semantic.primary indigo), darkModeSelector sur une classe + toggle sur <html>, @custom-variant dark aligné en Tailwind v4, cssLayer {name:'optimus', order:'theme, base, optimus'}, import @openng/optimus-ui-tailwindcss; pas de ::ng-deep.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Ma surcharge de highlight dans definePreset(Aura, { semantic: { highlight: {...} } }) n'a aucun effet. Pourquoi ?",
+      "expected_output": "Explique que Aura définit highlight sous colorScheme et qu'il faut surcharger sous semantic.colorScheme.light/dark avec la même structure.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "npm install @openng/optimus-ui sur mon projet Angular 21 échoue avec des erreurs de peer dependencies.",
+      "expected_output": "Identifie que le tag latest pointe sur la v2 (Angular 22) et recommande @openng/optimus-ui@1 (et @openng/optimus-ui-themes@1).",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Ajoute un tableau paginé de 200 000 lignes venant d'une API, avec tri et recherche globale.",
+      "expected_output": "p-table en mode lazy ([lazy], (onLazyLoad), [totalRecords]) avec dataKey, pas de chargement client complet, recherche globale côté serveur ou filterGlobal si client, consultation de la doc live pour les noms exacts si incertain.",
+      "files": []
+    }
+  ]
+}
